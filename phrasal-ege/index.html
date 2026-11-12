@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta property="og:title" content="Фразовые глаголы ЕГЭ: тренажёр">
+<meta property="og:description" content="20 заданий в формате ЕГЭ за 3 минуты. Английский с Ириной Александровной.">
+<meta property="og:type" content="website">
+<title>Фразовые глаголы ЕГЭ</title>
+<meta name="description" content="20 заданий на фразовые глаголы в формате ЕГЭ по английскому. Английский с Ириной Александровной.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800&family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Caveat:wght@600;700&display=swap">
+<style>
+/* Layout: one answer sheet ("бланк") at the centre; teacher's red pen marks the answers */
+:root{
+  --paper:#F7F6F1; --sheet:#FFFFFF; --ink:#16224A; --muted:#5D6685; --line:#D9DCE8;
+  --grid:#E9ECF4; --accent:#FFC93C; --pen:#D2342C; --ok:#1F8A4C; --okbg:#E6F4EB; --badbg:#FBE9E7;
+  --shadow:0 1px 0 rgba(22,34,74,.06),0 8px 24px rgba(22,34,74,.08);
+  --f-display:"Unbounded","Arial Black",system-ui,sans-serif;
+  --f-body:"Golos Text","Segoe UI",Roboto,Arial,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+  --f-hand:"Caveat","Comic Sans MS",cursive;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0E1530; --sheet:#16204A; --ink:#EEF1FA; --muted:#A7B0D0; --line:#2C3868;
+  --grid:#1B2756; --accent:#FFC93C; --pen:#FF6A5E; --ok:#4FD08A; --okbg:#173A33; --badbg:#3A1E2A;
+  --shadow:0 1px 0 rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.35); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0E1530; --sheet:#16204A; --ink:#EEF1FA; --muted:#A7B0D0; --line:#2C3868;
+  --grid:#1B2756; --accent:#FFC93C; --pen:#FF6A5E; --ok:#4FD08A; --okbg:#173A33; --badbg:#3A1E2A;
+  --shadow:0 1px 0 rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.35); color-scheme:dark}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0}
+[hidden]{display:none!important}
+img{max-width:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 40px}
+.wrap{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+.brand{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.brand b{color:var(--ink);font-weight:500}
+.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);overflow:hidden}
+.sheet-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 20px;border-bottom:1px dashed var(--line);font-family:var(--f-mono);font-size:13px;color:var(--muted)}
+.sheet-body{padding:24px 20px 22px;display:flex;flex-direction:column;gap:18px;
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px);background-size:100% 32px;background-position:0 23px}
+h1{font-family:var(--f-display);font-weight:800;font-size:clamp(28px,7vw,44px);line-height:1.05;margin:0;text-wrap:balance}
+h1 .hl{background:var(--accent);color:#16224A;padding:0 .18em;border-radius:6px}
+.lead{margin:0;color:var(--muted);max-width:52ch}
+.rules{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.rule{border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--sheet)}
+.rule strong{display:block;font-family:var(--f-display);font-size:20px}
+.rule span{font-size:13px;color:var(--muted)}
+@media (max-width:440px){.rules{grid-template-columns:1fr}}
+.example{font-family:var(--f-mono);font-size:14px;background:var(--sheet);border-left:3px solid var(--accent);padding:10px 12px;border-radius:0 8px 8px 0}
+.btn{appearance:none;border:0;border-radius:12px;padding:14px 22px;font:600 16px/1 var(--f-body);cursor:pointer;background:var(--ink);color:var(--sheet);display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px}
+.btn:hover{filter:brightness(1.12)}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn:focus-visible,.opt:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.progress{height:6px;background:var(--grid);border-radius:99px;overflow:hidden}
+.progress i{display:block;height:100%;background:var(--accent);width:0;transition:width .3s ease}
+.task-no{font-family:var(--f-mono);font-size:13px;color:var(--muted);letter-spacing:.04em}
+.sentence{font-size:clamp(20px,5vw,24px);font-weight:500;line-height:1.45;margin:0}
+.gap{display:inline-block;min-width:5.5em;border-bottom:2px solid var(--ink);text-align:center;font-weight:600;padding:0 .2em;line-height:1.2}
+.gap.ok{color:var(--ok);border-color:var(--ok)}
+.gap.bad{color:var(--pen);border-color:var(--pen)}
+.hint{font-size:14px;color:var(--muted);margin:-6px 0 0}
+.opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:400px){.opts{grid-template-columns:1fr}}
+.opt{appearance:none;text-align:left;border:1.5px solid var(--line);background:var(--sheet);color:var(--ink);border-radius:12px;padding:14px 14px;font:500 17px/1.2 var(--f-body);cursor:pointer;display:flex;align-items:center;gap:10px;min-height:54px;position:relative}
+.opt .k{font-family:var(--f-mono);font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:6px;width:24px;height:24px;display:grid;place-items:center;flex:none}
+.opt:hover:not([disabled]){border-color:var(--ink)}
+.opt[disabled]{cursor:default}
+.opt.ok{border-color:var(--ok);background:var(--okbg)}
+.opt.bad{border-color:var(--pen);background:var(--badbg)}
+.opt.bad::after{content:"";position:absolute;left:12px;right:12px;top:50%;height:2px;background:var(--pen);transform:rotate(-3deg)}
+.opt.dim{opacity:.5}
+.feedback{border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:6px;border:1px dashed var(--line);background:var(--sheet)}
+.mark{font-family:var(--f-hand);font-size:30px;line-height:1;font-weight:700}
+.mark.ok{color:var(--ok)}
+.mark.bad{color:var(--pen)}
+.feedback p{margin:0}
+.feedback .tr{color:var(--muted);font-size:15px}
+.row{display:flex;gap:10px;flex-wrap:wrap;justify-content:space-between;align-items:center}
+.score{font-family:var(--f-mono);font-size:13px;color:var(--muted)}
+.score b{color:var(--ink)}
+.big{font-family:var(--f-display);font-weight:800;font-size:clamp(56px,16vw,96px);line-height:1}
+.big small{font-size:.4em;color:var(--muted);font-weight:600}
+.verdict{font-family:var(--f-hand);font-size:34px;color:var(--pen);line-height:1.1;transform:rotate(-2deg);display:inline-block}
+.review{display:flex;flex-direction:column;gap:8px;margin:0;padding:0;list-style:none}
+.review li{border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--sheet);font-size:15px}
+.review li b{color:var(--ok)}
+.review li s{color:var(--pen)}
+.cta{background:var(--ink);color:var(--sheet);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:12px}
+.cta h2{font-family:var(--f-display);font-size:20px;line-height:1.2;margin:0;text-wrap:balance}
+.cta p{margin:0;opacity:.9}
+.cta .code{font-family:var(--f-mono);background:var(--accent);color:#16224A;padding:2px 8px;border-radius:6px;font-weight:500}
+.cta a.btn{background:var(--accent);color:#16224A;text-decoration:none;align-self:flex-start}
+.foot{font-size:12px;color:var(--muted);text-align:center}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="brand"><span><b>Английский с Ириной Александровной</b></span><span>ЕГЭ · лексика</span></div>
+
+  <section class="sheet" id="screen-start">
+    <div class="sheet-head"><span>Бланк тренировки</span><span>20 заданий</span></div>
+    <div class="sheet-body">
+      <h1>Фразовые глаголы <span class="hl">ЕГЭ</span></h1>
+      <p class="lead">В разделе «Грамматика и лексика» часто проверяют фразовые глаголы. Глагол один, а частица меняет весь смысл: put off, put out и put up with — три разных ответа.</p>
+      <div class="example">The meeting was put ___ till Monday.<br>off · out · up · on</div>
+      <div class="rules">
+        <div class="rule"><strong>20</strong><span>заданий в формате экзамена</span></div>
+        <div class="rule"><strong>4</strong><span>варианта, верный один</span></div>
+        <div class="rule"><strong>3 мин</strong><span>на всю игру</span></div>
+      </div>
+      <button class="btn" id="start">Начать тренировку</button>
+    </div>
+  </section>
+
+  <section class="sheet" id="screen-q" hidden>
+    <div class="sheet-head"><span class="task-no" id="qno">Задание 1 из 20</span><span class="score">Верно: <b id="sc">0</b></span></div>
+    <div class="progress" aria-hidden="true"><i id="bar"></i></div>
+    <div class="sheet-body">
+      <p class="sentence" id="sentence"></p>
+      <p class="hint" id="hint"></p>
+      <div class="opts" id="opts" role="group" aria-label="Варианты ответа"></div>
+      <div class="feedback" id="fb" hidden aria-live="polite">
+        <span class="mark" id="mark"></span>
+        <p id="expl"></p>
+        <p class="tr" id="tr"></p>
+      </div>
+      <div class="row">
+        <span class="score" id="keys">Можно отвечать клавишами 1–4</span>
+        <button class="btn" id="next" hidden>Дальше</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="sheet" id="screen-end" hidden>
+    <div class="sheet-head"><span>Результат</span><span id="endmeta"></span></div>
+    <div class="sheet-body">
+      <div class="big" id="final">0<small>/20</small></div>
+      <span class="verdict" id="verdict"></span>
+      <p class="lead" id="advice"></p>
+      <div id="reviewwrap">
+        <p class="task-no" style="margin:0 0 8px">Ошибки, которые стоит повторить</p>
+        <ul class="review" id="review"></ul>
+      </div>
+      <div class="cta">
+        <h2>Готовитесь к ЕГЭ в этом году?</h2>
+        <p>Напишите <span class="code">ЕГЭ</span> в сообщения сообщества — пришлю чек-лист подготовки по месяцам. А на бесплатном пробном занятии определим ваш уровень и составим план до экзамена.</p>
+        <a class="btn" href="https://vk.me/club30029810" target="_blank" rel="noopener">Написать в сообщения</a>
+      </div>
+      <div class="row">
+        <button class="btn ghost" id="again">Пройти ещё раз</button>
+        <button class="btn ghost" id="copy">Скопировать результат</button>
+      </div>
+    </div>
+  </section>
+
+  <p class="foot">Сообщество «Английский с Ириной Александровной» · vk.com/club30029810</p>
+</div>
+
+<script>
+const Q=[
+ {s:"The meeting was ___ until next Monday because the director was ill.",v:"put",a:"off",o:["off","out","up","on"],t:"put off — откладывать, переносить",r:"Встречу перенесли на следующий понедельник."},
+ {s:"It took the firefighters three hours to ___ the fire.",v:"put",a:"out",o:["out","off","up","away"],t:"put out — потушить (огонь, сигарету)",r:"Пожарным понадобилось три часа, чтобы потушить огонь."},
+ {s:"I can't ___ with his rudeness any longer.",v:"put",a:"up",o:["up","on","off","down"],t:"put up with — терпеть, мириться",r:"Я больше не могу терпеть его грубость."},
+ {s:"She really ___ her grandmother: they are both kind and very stubborn.",v:"takes",a:"after",o:["after","off","up","over"],t:"take after — быть похожим на родственника",r:"Она очень похожа на бабушку."},
+ {s:"Our plane ___ two hours late because of the fog.",v:"took",a:"off",o:["off","in","after","over"],t:"take off — взлетать (о самолёте)",r:"Наш самолёт взлетел на два часа позже из-за тумана."},
+ {s:"My uncle finally decided to ___ smoking.",v:"give",a:"up",o:["up","in","out","away"],t:"give up — бросить (привычку), сдаться",r:"Мой дядя наконец решил бросить курить."},
+ {s:"Our car ___ in the middle of the motorway.",v:"broke",a:"down",o:["down","in","out","up"],t:"break down — сломаться (о машине, технике)",r:"Наша машина сломалась посреди трассы."},
+ {s:"Thieves ___ while the family was on holiday and stole the TV.",v:"broke",a:"in",o:["in","out","down","off"],t:"break in — вломиться, проникнуть со взломом",r:"Воры вломились, пока семья была в отпуске, и украли телевизор."},
+ {s:"Please ___ the application form in capital letters.",v:"fill",a:"in",o:["in","up","on","over"],t:"fill in — заполнить (бланк, анкету)",r:"Пожалуйста, заполните заявление печатными буквами."},
+ {s:"You can ___ any unknown words in an online dictionary.",v:"look",a:"up",o:["up","for","after","into"],t:"look up — найти (в словаре, справочнике)",r:"Любые незнакомые слова можно найти в онлайн-словаре."},
+ {s:"Who is going to ___ the children while we are away?",v:"look",a:"after",o:["after","for","up","through"],t:"look after — присматривать, заботиться",r:"Кто будет присматривать за детьми, пока нас нет?"},
+ {s:"We have ___ of milk, so I'll go to the shop.",v:"run",a:"out",o:["out","into","over","away"],t:"run out (of) — закончиться (о запасах)",r:"У нас закончилось молоко, так что я схожу в магазин."},
+ {s:"Yesterday I ___ an old classmate at the railway station.",v:"ran",a:"into",o:["into","out","over","off"],t:"run into — случайно встретить",r:"Вчера я случайно встретил одноклассника на вокзале."},
+ {s:"The new teacher ___ well with all her students.",v:"gets",a:"on",o:["on","over","through","off"],t:"get on (with) — ладить",r:"Новая учительница хорошо ладит со всеми учениками."},
+ {s:"It took her almost a month to ___ the flu.",v:"get",a:"over",o:["over","on","off","through"],t:"get over — оправиться, поправиться",r:"Ей понадобился почти месяц, чтобы оправиться от гриппа."},
+ {s:"We are counting on you. Please don't ___ the team!",v:"let",a:"down",o:["down","off","out","in"],t:"let down — подвести, разочаровать",r:"Мы на тебя рассчитываем. Пожалуйста, не подведи команду!"},
+ {s:"None of it was true: he ___ the whole story.",v:"made",a:"up",o:["up","out","off","for"],t:"make up — выдумать, сочинить",r:"Ничего из этого не было правдой: он выдумал всю историю."},
+ {s:"It was so dark that I couldn't ___ the words on the sign.",v:"make",a:"out",o:["out","up","off","for"],t:"make out — разглядеть, разобрать",r:"Было так темно, что я не мог разобрать слова на табличке."},
+ {s:"Could you ___ the radio? I can't hear the news.",v:"turn",a:"up",o:["up","down","off","out"],t:"turn up — сделать громче; также «появиться»",r:"Можешь сделать радио погромче? Я не слышу новости."},
+ {s:"They ___ our offer because it was too expensive.",v:"turned",a:"down",o:["down","up","off","over"],t:"turn down — отклонить (предложение, просьбу)",r:"Они отклонили наше предложение, потому что оно было слишком дорогим."}
+];
+const $=id=>document.getElementById(id);
+let order=[],i=0,score=0,wrong=[],answered=false;
+const shuffle=a=>{a=a.slice();for(let k=a.length-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[a[k],a[j]]=[a[j],a[k]]}return a};
+function show(id){["screen-start","screen-q","screen-end"].forEach(s=>$(s).hidden=s!==id);window.scrollTo({top:0})}
+function start(){order=shuffle(Q);i=0;score=0;wrong=[];show("screen-q");render()}
+function sentenceHTML(q,fill,cls){
+  const parts=q.s.split("___");
+  return esc(parts[0])+'<span class="gap '+(cls||"")+'">'+(fill?esc(q.v+" "+fill):"&nbsp;")+'</span>'+esc(parts[1]||"");
+}
+function esc(t){return t.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+function render(){
+  answered=false;const q=order[i];
+  $("qno").textContent="Задание "+(i+1)+" из "+order.length;
+  $("sc").textContent=score;
+  $("bar").style.width=(i/order.length*100)+"%";
+  $("sentence").innerHTML=sentenceHTML(q);
+  $("hint").textContent="Выберите частицу к глаголу "+q.v.toUpperCase();
+  const box=$("opts");box.innerHTML="";
+  shuffle(q.o).forEach((o,k)=>{
+    const b=document.createElement("button");b.className="opt";b.id="opt-"+k;b.dataset.v=o;
+    b.innerHTML='<span class="k">'+(k+1)+'</span><span>'+esc(q.v+" "+o)+'</span>';
+    b.addEventListener("click",()=>answer(o));box.appendChild(b);
+  });
+  $("fb").hidden=true;$("next").hidden=true;
+}
+function answer(o){
+  if(answered)return;answered=true;const q=order[i];const ok=o===q.a;
+  if(ok)score++;else wrong.push({q,o});
+  [...$("opts").children].forEach(b=>{b.disabled=true;const v=b.dataset.v;
+    if(v===q.a)b.classList.add("ok");else if(v===o)b.classList.add("bad");else b.classList.add("dim")});
+  $("sentence").innerHTML=sentenceHTML(q,q.a,ok?"ok":"bad");
+  $("mark").textContent=ok?"Верно!":"Ошибка: правильно "+q.v+" "+q.a;
+  $("mark").className="mark "+(ok?"ok":"bad");
+  $("expl").textContent=q.t;$("tr").textContent=q.r;
+  $("fb").hidden=false;$("sc").textContent=score;
+  $("next").hidden=false;$("next").textContent=i===order.length-1?"Узнать результат":"Дальше";$("next").focus();
+}
+function next(){i++;if(i<order.length)render();else finish()}
+function finish(){
+  $("bar").style.width="100%";
+  $("final").innerHTML=score+"<small>/"+order.length+"</small>";
+  let v,a;
+  if(score>=18){v="Отлично, это уровень высокого балла!";a="Фразовые глаголы — ваша сильная сторона. Держите уровень: повторяйте список раз в неделю и решайте задания из демоверсий."}
+  else if(score>=13){v="Хорошо, но баллы ещё теряются";a="Основу вы знаете, но в похожих частицах путаетесь. Повторите ошибки ниже и пройдите игру ещё раз через пару дней."}
+  else if(score>=8){v="Есть над чем поработать";a="На экзамене такие задания могут стоить вам нескольких баллов. Учите фразовые глаголы группами по одному глаголу: put off / put out / put up with."}
+  else {v="Начинаем с основы";a="Не расстраивайтесь: фразовые глаголы — одна из самых сложных тем. Начните с самых частых: give up, look after, run out of, get on with."}
+  $("verdict").textContent=v;$("advice").textContent=a;
+  $("endmeta").textContent=Math.round(score/order.length*100)+"% верно";
+  const ul=$("review");ul.innerHTML="";
+  $("reviewwrap").hidden=!wrong.length;
+  wrong.forEach(({q,o})=>{const li=document.createElement("li");
+    li.innerHTML=esc(q.s.replace("___",q.v+" "+q.a))+'<br><s>'+esc(q.v+" "+o)+'</s> → <b>'+esc(q.v+" "+q.a)+'</b> · '+esc(q.t.split(" — ")[1]||"");ul.appendChild(li)});
+  show("screen-end");
+}
+$("start").addEventListener("click",start);
+$("next").addEventListener("click",next);
+$("again").addEventListener("click",start);
+$("copy").addEventListener("click",async()=>{
+  const t="Мой результат в тренажёре «Фразовые глаголы ЕГЭ»: "+score+"/"+order.length+". Попробуй сам в сообществе «Английский с Ириной Александровной» vk.com/club30029810";
+  try{await navigator.clipboard.writeText(t);$("copy").textContent="Скопировано"}
+  catch(e){$("copy").textContent="Не удалось скопировать";}
+  setTimeout(()=>$("copy").textContent="Скопировать результат",2000);
+});
+document.addEventListener("keydown",e=>{
+  if($("screen-q").hidden)return;
+  if(!answered&&/^[1-4]$/.test(e.key)){const b=$("opt-"+(+e.key-1));if(b)b.click()}
+  else if(answered&&(e.key==="Enter"||e.key===" ")){e.preventDefault();next()}
+});
+</script>
+
+</body>
+</html>
