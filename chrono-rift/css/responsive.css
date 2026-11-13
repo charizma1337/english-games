@@ -1,0 +1,122 @@
+/* ===== Адаптация под планшеты и телефоны ===== */
+@media (max-width: 860px) {
+  .title-wrap { grid-template-columns: 1fr; padding: 16px; gap: 0; }
+  .title-hero { position: absolute; inset: auto 0 0 0; height: 62vh; opacity: .35; pointer-events: none; z-index: 0; }
+  .title-panel { position: relative; z-index: 1; padding: 22px 16px; }
+  .map-node { width: 112px; }
+  .node-label small { display: none; }
+  .ach-stats { grid-template-columns: repeat(2, 1fr); }
+  .book-tools { grid-template-columns: 1fr 1fr; }
+  .book-tools #book-search { grid-column: 1 / -1; }
+}
+
+@media (max-width: 640px) {
+  .topbar { padding: 8px 12px; gap: 8px; }
+  .topbar-title { font-size: .98rem; }
+  .icon-btn { width: 42px; height: 42px; }
+  .topbar-space { width: 42px; }
+  .game-root { padding: 10px 12px 90px; }
+  .moon { width: 48px; height: 48px; top: 5vh; }
+
+  /* Карта в портретной ориентации */
+  .map-stage { aspect-ratio: 4 / 5.4; width: 100%; }
+  .map-frame { padding: 10px 12px; }
+  .node-ico { width: 54px; height: 54px; font-size: 1.25rem; }
+  .node-portal { width: 84px; height: 84px; top: -15px; }
+  .map-node { width: 96px; }
+  .node-label { padding: 3px 6px; }
+  .node-label b { font-size: .7rem; }
+  .map-dock { grid-template-columns: repeat(2, 1fr); gap: 8px; padding: 0 12px max(12px, env(safe-area-inset-bottom)); }
+  .dock-btn { flex-direction: row; justify-content: center; padding: 10px 6px; font-size: .8rem; }
+  .dock-btn .ico { width: 22px; height: 22px; }
+
+  /* Диалоги */
+  .dialog { padding: 10px; }
+  .dialog-card { padding: 12px; gap: 10px; }
+  .dialog-portrait .portrait.big { --sz: 62px; }
+  .dialog-text { font-size: 1rem; }
+
+  /* Модальные окна */
+  .modal { padding: 16px; border-radius: 20px; }
+  .diff-pick { grid-template-columns: 1fr; }
+  .mode-pick { grid-template-columns: 1fr; }
+
+  /* Формы */
+  .form-cell { min-width: 84px; padding: 8px 4px; }
+  .form-cell b { font-size: 1.05rem; }
+  .form-arrow { display: none; }
+
+  /* Мост */
+  .b-section { padding: 0 5% 0 17%; gap: 3%; }
+  .bridge-hero { height: 44%; left: -2%; }
+  .b-slot small { font-size: .52rem; top: -18px; }
+  .b-slot small { white-space: normal; text-align: center; line-height: 1; width: 100%; }
+  .bridge-verb b { font-size: 1.4rem; }
+  .tile { min-width: 76px; min-height: 48px; font-size: 1.02rem; padding: .4em .8em; }
+
+  /* Крыши */
+  .roof-canvas-wrap { min-height: 52vh; }
+  .ctrl { min-height: 60px; }
+
+  /* Память */
+  .mem-grid { gap: 7px; }
+  .mem-grid.n12 { grid-template-columns: repeat(3, 1fr); }
+  .mem-grid.n18 { grid-template-columns: repeat(3, 1fr); }
+  .mcard { aspect-ratio: 3 / 2.3; }
+
+  /* Лаборатория */
+  .lab-device { padding: 12px 8px; }
+  .lab-core { height: 96px; }
+  .ring { padding: 8px 4px; border-radius: 16px; }
+  .ring-window { height: 132px; }
+  .ring-btn { height: 44px; }
+  .lab-target b { font-size: 1.5rem; }
+  .lab-target b.ru { font-size: 1.25rem; }
+
+  /* Метро */
+  .loco { width: 40px; height: 96px; font-size: 0; border-radius: 20px 10px 6px 6px; }
+  .wagon { min-height: 112px; padding: 8px 2px 24px; }
+  .wagon-label { font-size: 1.4rem; }
+  .wagon small { font-size: .58rem; }
+  .metro-word { font-size: 1.5rem; }
+
+  /* Финал */
+  .explain-grid { grid-template-columns: 1fr; }
+  .fin-portal { height: 150px; }
+  .fin-ring.r1 { width: 140px; height: 140px; } .fin-ring.r2 { width: 106px; height: 106px; } .fin-ring.r3 { width: 74px; height: 74px; }
+  .fin-phantom { width: 80px; right: 0; }
+  .link-board { gap: 24px; }
+  .link-col .chip { min-width: 92px; font-size: 1rem; }
+
+  /* Книга */
+  .book { padding: 12px; }
+  .book-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .verb-card { min-height: 100px; padding: 10px; }
+  .verb-card b { font-size: 1.1rem; }
+  .ach-grid { grid-template-columns: 1fr; }
+
+  .hunt-setup { flex-direction: column; align-items: stretch; }
+  .hunt-setup .input { max-width: none; }
+  .type-row { flex-direction: column; }
+  .companion { bottom: 10px; }
+}
+
+@media (max-width: 380px) {
+  .logo-main { font-size: 2.3rem; }
+  .tile { min-width: 64px; font-size: .95rem; }
+  .ring-item { font-size: .85rem; }
+  .book-tools { grid-template-columns: 1fr; }
+}
+
+/* Невысокие экраны (ноутбуки, телефон боком) */
+@media (max-height: 640px) and (min-width: 641px) {
+  .bridge-scene { height: 200px; }
+  .roof-canvas-wrap { min-height: 260px; }
+  .title-hero { height: 80vh; }
+  .ring-window { height: 120px; }
+  .lab-core { height: 80px; }
+}
+
+@media (hover: none) {
+  .btn:hover:not(:disabled), .tile:hover:not(.used), .verb-card:hover, .dock-btn:hover { transform: none; }
+}

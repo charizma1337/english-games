@@ -1,0 +1,73 @@
+/* ===== Анимации ===== */
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes spinSlow { to { transform: rotate(360deg); } }
+@keyframes spinBack { to { transform: rotate(-360deg); } }
+@keyframes twinkle { from { opacity: .45; } to { opacity: 1; } }
+@keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .75; transform: scale(1.04); } }
+@keyframes pulseOnce { 50% { transform: scale(1.25); box-shadow: 0 0 0 6px rgba(78, 217, 232, .25); } }
+@keyframes drift { from { background-position: 0 0; } to { background-position: 520px 0; } }
+@keyframes beacon { 0%, 100% { opacity: .4; } 50% { opacity: 1; } }
+@keyframes screenIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fadeOut { to { opacity: 0; } }
+@keyframes popIn { from { opacity: 0; transform: scale(.88); } to { opacity: 1; transform: scale(1); } }
+@keyframes slideUp { from { opacity: 0; transform: translate(var(--tx, 0), 30px); } to { opacity: 1; transform: translate(var(--tx, 0), 0); } }
+.companion { --tx: -50%; }
+@keyframes slideDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: none; } }
+@keyframes heroFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+@keyframes hover { 0%, 100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, -8px); } }
+.fin-phantom { --x: 0; }
+@keyframes nodePulse { 0%, 100% { box-shadow: 0 6px 0 rgba(0, 0, 0, .4), 0 0 16px rgba(242, 73, 113, .5); } 50% { box-shadow: 0 6px 0 rgba(0, 0, 0, .4), 0 0 34px rgba(242, 73, 113, .95); } }
+@keyframes restoreFlash { 0% { transform: scale(1); } 30% { transform: scale(1.5); box-shadow: 0 0 60px 20px rgba(255, 214, 109, .9); } 100% { transform: scale(1); } }
+@keyframes particle { to { transform: translate(var(--dx), var(--dy)) rotate(200deg) scale(.3); opacity: 0; } }
+@keyframes comicPop {
+  0% { transform: translate(-50%, -50%) scale(.2) rotate(-14deg); opacity: 0; }
+  25% { transform: translate(-50%, -50%) scale(1.15) rotate(-6deg); opacity: 1; }
+  70% { transform: translate(-50%, -50%) scale(1) rotate(-4deg); opacity: 1; }
+  100% { transform: translate(-50%, -70%) scale(.9) rotate(-4deg); opacity: 0; }
+}
+@keyframes comicPopStay { from { transform: scale(.2) rotate(-10deg); opacity: 0; } to { transform: scale(1) rotate(-3deg); opacity: 1; } }
+@keyframes shake { 0%, 100% { transform: translateX(0); } 20% { transform: translateX(-8px); } 40% { transform: translateX(7px); } 60% { transform: translateX(-5px); } 80% { transform: translateX(3px); } }
+@keyframes starIn { from { transform: scale(0) rotate(-90deg); } to { transform: scale(1) rotate(0); } }
+@keyframes badgeGlow { 0%, 100% { filter: drop-shadow(0 0 4px rgba(255, 214, 109, .4)); } 50% { filter: drop-shadow(0 0 14px rgba(255, 214, 109, .9)); } }
+@keyframes flyAway { 0% { transform: translate(0, 0) scale(.6); opacity: 0; } 20% { opacity: 1; } 100% { transform: translate(40vw, -60vh) scale(1.4); opacity: 0; } }
+@keyframes hintGlow { 0%, 100% { box-shadow: 0 5px 0 #7a6bc4; } 50% { box-shadow: 0 5px 0 #7a6bc4, 0 0 0 5px rgba(255, 214, 109, .8), 0 0 24px rgba(255, 214, 109, .9); } }
+@keyframes crackPulse { 0%, 100% { box-shadow: inset 0 0 0 rgba(78, 217, 232, 0); } 50% { box-shadow: inset 0 0 22px rgba(78, 217, 232, .35); } }
+@keyframes snap { 0% { transform: scale(1.25); } 100% { transform: scale(1); } }
+@keyframes wave { from { left: -30%; } to { left: 110%; } }
+@keyframes idleBob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+@keyframes runAcross {
+  0% { left: 1%; transform: translateY(0) rotate(0); }
+  20% { transform: translateY(-30%) rotate(-6deg); }
+  35% { left: 30%; transform: translateY(0); }
+  50% { transform: translateY(-30%) rotate(-6deg); }
+  65% { left: 58%; transform: translateY(0); }
+  80% { transform: translateY(-35%) rotate(-10deg); }
+  100% { left: 96%; transform: translateY(0) rotate(0); opacity: .2; }
+}
+@keyframes dealIn { from { opacity: 0; transform: translateY(-20px) rotate(-6deg) scale(.8); } to { opacity: 1; transform: none; } }
+@keyframes cardGone { to { opacity: 0; transform: translateY(-40px) scale(.5); } }
+@keyframes bookIn { from { transform: translateY(-60px) scale(.6); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes scan { from { background-position: 0 0; } to { background-position: 0 120px; } }
+@keyframes glitch { 0%, 100% { transform: none; } 92% { transform: translateX(3px) skewX(6deg); } 95% { transform: translateX(-3px); } }
+@keyframes crystalSpin { 0% { transform: scale(.6) rotateY(0); } 60% { transform: scale(1.25) rotateY(360deg); } 100% { transform: scale(1) rotateY(360deg); } }
+@keyframes lever { 50% { transform: translateY(6px) scale(.97); } }
+@keyframes bump { 0%, 100% { transform: translateY(0); } 40% { transform: translateY(6px); } 70% { transform: translateY(-3px); } }
+
+/* SVG-элементы персонажей */
+.phantom .ph-hands { animation: spinBack 3s linear infinite; }
+.phantom .ph-gears circle { transform-box: fill-box; transform-origin: center; animation: spin 4s linear infinite; }
+.phantom .ph-eye { animation: beacon 1.6s ease-in-out infinite; }
+.phantom .ph-ribbons { animation: pulse 2.4s ease-in-out infinite; transform-origin: center; }
+.akuma .wing-l, .akuma .wing-r { transform-box: fill-box; animation: flap .35s ease-in-out infinite alternate; }
+.akuma .wing-l { transform-origin: right center; } .akuma .wing-r { transform-origin: left center; }
+@keyframes flap { from { transform: scaleX(1); } to { transform: scaleX(.35); } }
+.intro-phantom svg, .map-phantom svg, .fin-phantom svg { width: 100%; height: auto; filter: drop-shadow(0 0 20px rgba(78, 217, 232, .6)); }
+.map-phantom { animation: hover 3s ease-in-out infinite; }
+
+/* ===== Уменьшение анимаций ===== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+body.reduce-motion *, body.reduce-motion *::before, body.reduce-motion *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .05s !important; }
+body.reduce-motion .bridge-hero.run { left: 96%; opacity: .2; }
