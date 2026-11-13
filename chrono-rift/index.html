@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0B1026">
+  <title>Miraculous: Chrono Rift — Хроноразлом</title>
+  <meta name="description" content="Образовательная игра по неправильным английским глаголам: спаси Париж, восстановив время!">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800;900&family=Russo+One&display=swap">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/games.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%23F24971'/%3E%3Cpath d='M16 1v30' stroke='%23111' stroke-width='2'/%3E%3Ccircle cx='10' cy='11' r='3' fill='%23111'/%3E%3Ccircle cx='22' cy='11' r='3' fill='%23111'/%3E%3Ccircle cx='9' cy='21' r='3' fill='%23111'/%3E%3Ccircle cx='23' cy='21' r='3' fill='%23111'/%3E%3C/svg%3E">
+</head>
+<body>
+  <!-- Мир: ночной Париж -->
+  <div id="world" aria-hidden="true">
+    <div class="sky"></div>
+    <div class="stars s1"></div><div class="stars s2"></div>
+    <div class="moon"></div>
+    <div class="world-portal"><div class="portal"><i></i><i></i><i></i></div></div>
+    <div class="energy-lines"></div>
+    <div id="skyline"></div>
+    <div class="world-dim"></div>
+  </div>
+
+  <main id="app">
+    <!-- СТАРТ -->
+    <section class="screen" id="scr-title">
+      <div class="title-wrap">
+        <div class="title-hero"><img src="assets/characters/ladybug-cutout.png" alt="Леди Баг" draggable="false"></div>
+        <div class="title-panel">
+          <h1 class="logo"><span class="logo-top">MIRACULOUS</span><span class="logo-main">CHRONO RIFT</span><span class="logo-ru">Хроноразлом</span></h1>
+          <p class="subtitle">Спаси Париж, восстановив время!</p>
+          <p id="title-greet" class="greet"></p>
+          <div class="title-buttons">
+            <button class="btn primary big" id="btn-start">НАЧАТЬ ПРИКЛЮЧЕНИЕ</button>
+            <button class="btn" id="btn-continue">Продолжить</button>
+            <div class="row">
+              <button class="btn ghost" id="btn-book-title">Коллекция глаголов</button>
+              <button class="btn ghost" id="btn-settings-title">Настройки</button>
+            </div>
+            <button class="btn link" id="btn-reset">Сброс прогресса</button>
+          </div>
+          <p class="title-foot">86 неправильных глаголов · 6 мини-игр · финальная битва</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ИНТРО -->
+    <section class="screen" id="scr-intro"><div id="intro-stage" class="intro-stage"></div></section>
+
+    <!-- КАРТА -->
+    <section class="screen" id="scr-map">
+      <header class="topbar">
+        <button class="icon-btn" id="map-home" aria-label="На главный экран"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 11l9-7 9 7v9H3z"/><path d="M9 20v-6h6v6"/></svg></button>
+        <h2 class="topbar-title">Карта Парижа</h2>
+        <button class="icon-btn" id="map-settings" aria-label="Настройки"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></svg></button>
+      </header>
+      <div id="map-player"></div>
+      <div class="map-frame"><div id="map-stage" class="map-stage"></div></div>
+      <nav class="map-dock">
+        <button class="dock-btn" id="map-book"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v17H6.5A2.5 2.5 0 0 0 4 21.5zM4 21.5A2.5 2.5 0 0 1 6.5 19H20v3H6.5"/></svg><span>Книга времени</span></button>
+        <button class="dock-btn" id="map-hunt"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M1 12h4M19 12h4"/></svg><span>Охота за глаголами</span></button>
+        <button class="dock-btn" id="map-trouble"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 4v7h-7"/></svg><span>Повтор ошибок</span><em id="map-trouble-count"></em></button>
+        <button class="dock-btn" id="map-ach"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0zM7 6H3c0 3 2 5 4 5M17 6h4c0 3-2 5-4 5"/></svg><span>Достижения</span></button>
+      </nav>
+    </section>
+
+    <!-- ИГРА -->
+    <section class="screen" id="scr-game">
+      <header class="topbar game-top">
+        <button class="icon-btn back-to-map" aria-label="Назад на карту"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <h2 class="topbar-title" id="game-title"></h2>
+        <span class="topbar-space"></span>
+      </header>
+      <div id="game-root" class="game-root"></div>
+    </section>
+
+    <!-- КНИГА ВРЕМЕНИ -->
+    <section class="screen" id="scr-book">
+      <header class="topbar">
+        <button class="icon-btn back-to-map" aria-label="Назад"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <h2 class="topbar-title">THE BOOK OF TIME</h2>
+        <span class="topbar-space"></span>
+      </header>
+      <div class="book">
+        <div class="book-tools">
+          <input id="book-search" class="input" type="search" placeholder="Поиск: go, went, летать…" autocomplete="off">
+          <select id="book-groups" class="input"></select>
+          <button class="btn primary small" id="book-study">Учить эту группу</button>
+        </div>
+        <div id="book-filters" class="chips">
+          <button class="chip on" data-f="all">Все</button>
+          <button class="chip" data-f="new">Новые</button>
+          <button class="chip" data-f="learning">Изучаются</button>
+          <button class="chip" data-f="familiar">Знакомые</button>
+          <button class="chip" data-f="mastered">Освоены</button>
+          <button class="chip" data-f="mistakes">Частые ошибки</button>
+        </div>
+        <div id="book-summary" class="book-summary"></div>
+        <div id="book-grid" class="book-grid"></div>
+      </div>
+    </section>
+
+    <!-- ДОСТИЖЕНИЯ -->
+    <section class="screen" id="scr-ach">
+      <header class="topbar">
+        <button class="icon-btn back-to-map" aria-label="Назад"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <h2 class="topbar-title">Достижения</h2>
+        <span class="topbar-space"></span>
+      </header>
+      <div class="ach-wrap"><div id="ach-stats" class="ach-stats"></div><div id="ach-grid" class="ach-grid"></div></div>
+    </section>
+  </main>
+
+  <div id="fx-layer" aria-hidden="true"></div>
+  <div id="overlay-root"></div>
+  <div id="toasts" aria-live="polite"></div>
+  <noscript><p class="noscript">Для игры нужен JavaScript.</p></noscript>
+
+  <script src="js/data.js"></script>
+  <script src="js/progress.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/art.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/questions.js"></script>
+  <script src="js/games/bridge.js"></script>
+  <script src="js/games/rooftop.js"></script>
+  <script src="js/games/memory.js"></script>
+  <script src="js/games/timeline.js"></script>
+  <script src="js/games/laboratory.js"></script>
+  <script src="js/games/metro.js"></script>
+  <script src="js/games/finale.js"></script>
+  <script src="js/games/hunt.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
